@@ -897,7 +897,6 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                           <ui:Comment sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// Add activity send email " />
-                                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:10" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="450,86" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Process done, open the result file at this directory:&quot;+vbNewLine+folder_done+report_file_name]" />
                                           <Sequence DisplayName="Log Info" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -913,8 +912,9 @@
                                                 <InArgument x:TypeArguments="x:String">[(DateTime.ParseExact(Now.ToString("d HH:mm:ss"), "d HH:mm:ss", Nothing)-DateTime.ParseExact(Time_Start, "d HH:mm:ss", Nothing)).ToString]</InArgument>
                                               </Assign.Value>
                                             </Assign>
-                                            <WriteLine DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="434,63" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[time_end+&quot; Send email report has been done&quot;]" />
+                                            <WriteLine DisplayName="Write Log" sap:VirtualizedContainerService.HintSize="434,63" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[time_end+&quot; Send email report has been done, file at UiBank API Method\&quot;+folder_done+report_file_name]" />
                                           </Sequence>
+                                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:10" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="450,86" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Process done, open the result file at this directory:&quot;+vbNewLine+&quot;UiBank API Method\&quot;+folder_done+report_file_name]" />
                                         </Sequence>
                                       </If.Then>
                                       <If.Else>
